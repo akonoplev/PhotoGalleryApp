@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A38F17F2024CB800061DAD0 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38F17E2024CB800061DAD0 /* FilterVC.swift */; };
 		9A5ECB5A1FFCFA590022F269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5ECB591FFCFA590022F269 /* AppDelegate.swift */; };
 		9A5ECB5F1FFCFA590022F269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5ECB5D1FFCFA590022F269 /* Main.storyboard */; };
 		9A5ECB611FFCFA590022F269 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A5ECB601FFCFA590022F269 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		78ACAB964D949C6F26AFE3EA /* Pods-PhotoGalleryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGalleryApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoGalleryApp/Pods-PhotoGalleryApp.debug.xcconfig"; sourceTree = "<group>"; };
+		9A38F17E2024CB800061DAD0 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		9A5ECB561FFCFA590022F269 /* PhotoGalleryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoGalleryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5ECB591FFCFA590022F269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A5ECB5E1FFCFA590022F269 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 				C41F5CA3D3C87EB25FA42A78 /* Pods_PhotoGalleryApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A38F17D2024CB5C0061DAD0 /* FilterVC */ = {
+			isa = PBXGroup;
+			children = (
+				9A38F17E2024CB800061DAD0 /* FilterVC.swift */,
+			);
+			path = FilterVC;
 			sourceTree = "<group>";
 		};
 		9A5ECB4D1FFCFA580022F269 = {
@@ -103,6 +113,7 @@
 		9A5ECB6E1FFCFC1C0022F269 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A38F17D2024CB5C0061DAD0 /* FilterVC */,
 				9A5ECB6F1FFCFC2B0022F269 /* AlbumsVC */,
 				9A5ECB781FFD84DA0022F269 /* GalleryVC */,
 			);
@@ -294,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5ECB6D1FFCFAD90022F269 /* AlbumsViewController.swift in Sources */,
+				9A38F17F2024CB800061DAD0 /* FilterVC.swift in Sources */,
 				9A5ECB771FFD07B60022F269 /* AlbumModel.swift in Sources */,
 				9A5ECB7A1FFD85050022F269 /* GalleryViewController.swift in Sources */,
 				9A5ECB5A1FFCFA590022F269 /* AppDelegate.swift in Sources */,
@@ -437,6 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B52HN82HTA;
 				INFOPLIST_FILE = "$(SRCROOT)/PhotoGalleryApp/other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beetlab.PhotoGalleryApp;
@@ -452,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B52HN82HTA;
 				INFOPLIST_FILE = "$(SRCROOT)/PhotoGalleryApp/other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beetlab.PhotoGalleryApp;

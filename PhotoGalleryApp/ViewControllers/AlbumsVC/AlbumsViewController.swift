@@ -81,9 +81,11 @@ extension AlbumsViewController {
                             let obj = ass[i]
                             let imageOption = PHImageRequestOptions()
                             
-                            PHImageManager.default().requestImage(for: obj, targetSize: CGSize(width: 285, height: 285) , contentMode: .aspectFill, options: imageOption, resultHandler: { (image, nil) in
+                            
+                            PHImageManager.default().requestImage(for: obj, targetSize: CGSize(width: 500, height: 700) , contentMode: .aspectFill, options: imageOption, resultHandler: { (image, nil) in
                                 guard let images = image else { return }
                                 photos.append(images)
+                                
                             })
                         }
                         let newAlbom = AlbumModel(name: a.localizedTitle!, count: ass.count, photos: photos)

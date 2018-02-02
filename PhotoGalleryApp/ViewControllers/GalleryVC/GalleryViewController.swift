@@ -11,6 +11,7 @@ import UIKit
 class GalleryViewController: UIViewController {
     
     var album: AlbumModel?
+    var selectedPhoto: UIImage?
     
     
     fileprivate let insetForSection: CGFloat = 1
@@ -21,7 +22,6 @@ class GalleryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registrate()
-        
     }
 }
 
@@ -37,7 +37,8 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        selectedPhoto = self.album?.photos[indexPath.row]
+        performSegue(withIdentifier: "filterSegue", sender: nil)
     }
 }
 
@@ -70,6 +71,14 @@ extension GalleryViewController {
         self.navigationItem.title = self.album?.name
         let nib = UINib(nibName: "PhotoCell", bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "photoCell")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "filterSegue", let dest = segue.destination as? FilterVC {
+            guard let image = selectedPhoto else { return }
+            dest.image = image
+        }
     }
 }
 
