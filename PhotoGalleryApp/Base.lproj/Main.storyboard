@@ -99,7 +99,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kag-qa-IEz"/>
+                    <navigationItem key="navigationItem" id="kag-qa-IEz">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera.png" id="MH3-jW-BNf">
+                            <connections>
+                                <action selector="cameraButtonTap:" destination="hed-FC-xF4" id="NtI-zk-8Sc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="qja-Kj-eZy" id="SRL-E9-igX"/>
                         <segue destination="xVj-j3-zXh" kind="push" identifier="filterSegue" id="g2X-h9-Ebi"/>
@@ -162,7 +168,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Filters" id="SDd-Y7-MuY">
-                        <barButtonItem key="rightBarButtonItem" title="save" id="jI1-ou-pyl"/>
+                        <barButtonItem key="rightBarButtonItem" title="save" id="jI1-ou-pyl">
+                            <connections>
+                                <action selector="save:" destination="xVj-j3-zXh" id="9Fm-gB-OlH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="ymb-pb-khD" id="Vvd-og-h4J"/>
@@ -173,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amT-dc-AV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1229.5" y="25.5"/>
+            <point key="canvasLocation" x="1553" y="34"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="poI-HR-2eQ">
@@ -194,4 +204,7 @@
             <point key="canvasLocation" x="-336.25" y="37.796666666666667"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera.png" width="32" height="32"/>
+    </resources>
 </document>

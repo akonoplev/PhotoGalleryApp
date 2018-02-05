@@ -16,11 +16,16 @@ class AlbumsViewController: UIViewController {
     var albumIndex = 0
     var textField = UITextField()
     @IBOutlet weak var tableView: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registrate()
         setupPhotos()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
 }

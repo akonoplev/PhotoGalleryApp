@@ -11,8 +11,20 @@ import UIKit
 class GalleryViewController: UIViewController {
     
     var album: AlbumModel?
-    var selectedPhoto: UIImage?
+    var selectedPhoto: UIImage!
+    let picker = UIImagePickerController()
     
+    @IBAction func cameraButtonTap(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.isEditing = false
+            picker.sourceType = UIImagePickerControllerSourceType.camera
+            picker.cameraCaptureMode = .photo
+            picker.modalPresentationStyle = .pageSheet
+            present(picker, animated: true, completion: nil)
+        } else {
+            noCamera()
+        }
+    }
     
     fileprivate let insetForSection: CGFloat = 1
     fileprivate let insetBetweenCells: CGFloat = 1
@@ -22,6 +34,11 @@ class GalleryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registrate()
+        picker.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
     }
 }
 
@@ -39,6 +56,20 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedPhoto = self.album?.photos[indexPath.row]
         performSegue(withIdentifier: "filterSegue", sender: nil)
+    }
+}
+
+extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+         let choosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        selectedPhoto = choosenImage
+        performSegue(withIdentifier: "filterSegue", sender: nil)
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -79,6 +110,13 @@ extension GalleryViewController {
             guard let image = selectedPhoto else { return }
             dest.image = image
         }
+    }
+    
+    func noCamera(){
+        let alertVC = UIAlertController(title: "No Camera", message: "Sorry, this device has no camera", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style:.default, handler: nil)
+        alertVC.addAction(okAction)
+        present(alertVC, animated: true, completion: nil)
     }
 }
 

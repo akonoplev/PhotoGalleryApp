@@ -11,6 +11,14 @@ import UIKit
 class FilterVC: UIViewController {
     var image: UIImage?
 
+    @IBAction func save(_ sender: Any) {
+        UIImageWriteToSavedPhotosAlbum(filterImage.image!, nil, nil, nil)
+        
+        let alert = UIAlertController(title: "Фильтр", message: "Изображение сохранено", preferredStyle: .alert)
+        let action = UIAlertAction(title: "ок", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var filterImage: UIImageView!
@@ -67,15 +75,6 @@ extension FilterVC {
             let imageForButton = UIImage(cgImage: filteredImageRef!)
             filterButton.setBackgroundImage(imageForButton, for: .normal)
             
-//            let ciContext = CIContext(options: nil)
-//            let coreImage = CIImage(image: photoImage.image!)
-//            let filter = CIFilter(name: "\(CIFilterNames[i])" )
-//            filter!.setDefaults()
-//            filter!.setValue(coreImage, forKey: kCIInputImageKey)
-//            let filteredImageData = filter!.value(forKey: kCIOutputImageKey) as! CIImage
-//            let filteredImageRef = ciContext.createCGImage(filteredImageData, from: filteredImageData.extent)
-//            let imageForButton = UIImage(cgImage: filteredImageRef!)
-//            filterButton.setBackgroundImage(imageForButton, for: .normal)
             
             xCoord += (buttonWidth + gapBetweenButtons)
             scrollView.addSubview(filterButton)
@@ -87,5 +86,7 @@ extension FilterVC {
         let button = sender as UIButton
         filterImage.image = button.backgroundImage(for: .normal)
     }
+    
+    
 
 }
